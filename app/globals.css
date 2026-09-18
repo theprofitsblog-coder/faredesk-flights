@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-slate-50 text-navy-900 antialiased;
+  }
+  ::selection {
+    @apply bg-accent-200 text-navy-900;
+  }
+  h1, h2, h3, h4 {
+    @apply font-semibold tracking-tight text-navy-900;
+  }
+  a {
+    @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy-600;
+  }
+}
+
+@layer components {
+  .prose-copy p {
+    @apply mb-4 leading-7 text-slate-700;
+  }
+  .prose-copy p:last-child {
+    @apply mb-0;
+  }
+  .prose-copy ul {
+    @apply mb-4 list-disc space-y-2 pl-6 text-slate-700;
+  }
+  .prose-copy strong {
+    @apply font-semibold text-navy-800;
+  }
+
+  .card {
+    @apply rounded-2xl border border-slate-200 bg-white p-6 shadow-card;
+  }
+
+  .cta-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-accent-500 px-6 py-4 text-lg font-bold text-navy-950 shadow-lift transition hover:bg-accent-400 hover:shadow-card active:scale-[.99];
+  }
+
+  .cta-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-navy-800 px-6 py-4 text-lg font-semibold text-white transition hover:bg-navy-700 active:scale-[.99];
+  }
+
+  .pill {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-navy-200 bg-navy-50 px-3 py-1 text-xs font-medium text-navy-700;
+  }
+}
+
+/* Sticky call bar sits above the fold edge on mobile without covering content */
+.sticky-call-spacer {
+  @apply h-20 md:h-0;
+}
