@@ -48,7 +48,7 @@ the site URL, or canonicals and the sitemap will point at the placeholder.
 
 | Variable | Where | Purpose |
 | --- | --- | --- |
-| `NEXT_PUBLIC_SITE_URL` | Vercel → Settings → Environment Variables | Your real domain. Drives canonical URLs, Open Graph and `sitemap.xml`. |
+| `NEXT_PUBLIC_SITE_URL` | Vercel → Settings → Environment Variables | Overrides the production origin. Drives canonical URLs, Open Graph and `sitemap.xml`. Fallback in `lib/config.ts` is the live Vercel deployment, so **set this if you ever add a custom domain**. |
 | `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` | Vercel (optional) | Overrides the GSC ownership token. Hardcoded fallback exists in `lib/config.ts`, so the tag renders even with no env set. |
 | `NEXT_PUBLIC_CONTACT_EMAIL` | Vercel (optional) | If unset, no email is rendered anywhere — so the site never advertises a dead inbox. |
 | `NEXT_PUBLIC_GA_ID` | Vercel (optional) | If set, gtag is injected in `app/layout.tsx`. Unset = no third-party requests. |

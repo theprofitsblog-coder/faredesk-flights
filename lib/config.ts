@@ -9,7 +9,15 @@
 
 const envUrl = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "");
 
-export const SITE_URL = envUrl || "https://faredesk-flights.vercel.app";
+/**
+ * Production origin. Drives canonical URLs, Open Graph tags and sitemap.xml.
+ *
+ * The env var wins when set; the fallback is the live Vercel deployment so a
+ * fresh deploy is correct even before env vars are configured. If you add a
+ * custom domain, set NEXT_PUBLIC_SITE_URL in Vercel and redeploy — otherwise
+ * every canonical keeps pointing at the vercel.app URL.
+ */
+export const SITE_URL = envUrl || "https://faredeskflights.vercel.app";
 
 export const SITE_NAME = "FareDesk";
 export const SITE_TAGLINE = "Book flights by phone with a real agent";
