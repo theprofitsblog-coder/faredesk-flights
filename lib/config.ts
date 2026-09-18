@@ -30,6 +30,19 @@ export const SERVICE_REGIONS = ["United States", "Canada"];
  */
 export const CONTACT_EMAIL = process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "";
 
+/**
+ * Google Search Console ownership token.
+ *
+ * Hardcoded as a fallback on purpose: if it lived only in an env var, forgetting
+ * to set it on a fresh Vercel project would silently drop the tag and Google
+ * would de-verify the property. Override via env if you ever rotate it.
+ *
+ * Do NOT remove — GSC requires the tag to stay present after verification.
+ */
+export const GOOGLE_SITE_VERIFICATION =
+  process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ||
+  "SkgM39tmMN7IwoO9fmQ15cVKVY-Zh43_cw6iTvOATO4";
+
 export const DEFAULT_DESCRIPTION = `${SITE_NAME} is an independent flight booking service. Call ${PHONE_DISPLAY} any time, day or night, and a US-based travel agent will price and book your flight with Delta, United, American, Southwest, Alaska and other major carriers.`;
 
 /**

@@ -49,8 +49,17 @@ the site URL, or canonicals and the sitemap will point at the placeholder.
 | Variable | Where | Purpose |
 | --- | --- | --- |
 | `NEXT_PUBLIC_SITE_URL` | Vercel → Settings → Environment Variables | Your real domain. Drives canonical URLs, Open Graph and `sitemap.xml`. |
+| `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` | Vercel (optional) | Overrides the GSC ownership token. Hardcoded fallback exists in `lib/config.ts`, so the tag renders even with no env set. |
 | `NEXT_PUBLIC_CONTACT_EMAIL` | Vercel (optional) | If unset, no email is rendered anywhere — so the site never advertises a dead inbox. |
 | `NEXT_PUBLIC_GA_ID` | Vercel (optional) | If set, gtag is injected in `app/layout.tsx`. Unset = no third-party requests. |
+
+### Google Search Console
+
+Ownership is verified by meta tag. It is emitted from `app/layout.tsx` via the `verification.google`
+metadata field, which means it renders in `<head>` on **all 3,161 pages**, not just the homepage —
+so it cannot be dropped by regenerating a single template.
+
+Do not remove it. GSC re-checks periodically and will de-verify the property if it disappears.
 
 Change the phone number in `lib/config.ts` only — `PHONE_E164`, `PHONE_DISPLAY` and `PHONE_HREF`
 are the single source of truth used by every component, every `tel:` link and the JSON-LD.

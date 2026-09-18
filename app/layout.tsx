@@ -7,6 +7,7 @@ import JsonLd from "@/components/JsonLd";
 import {
   AFFILIATE_DISCLOSURE,
   DEFAULT_DESCRIPTION,
+  GOOGLE_SITE_VERIFICATION,
   PHONE_DISPLAY,
   PHONE_E164,
   SITE_NAME,
@@ -31,6 +32,9 @@ export const metadata: Metadata = {
     "flight booking hotline",
   ],
   alternates: { canonical: "/" },
+  verification: {
+    google: GOOGLE_SITE_VERIFICATION,
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
